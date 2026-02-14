@@ -34,8 +34,9 @@
     body::before{
       content:"";
       position:fixed; inset:0;
-      background:
-        url("logo-wide.jpg") center/72% no-repeat;
+      background: url("logo-wide.jpg") center/72% no-repeat;
+      /* ✅ SPUŠTENO NIŽE da bude vidljiv (mijenjaj 62% ako želiš još niže/više) */
+      background-position: center 62%;
       opacity:.10;
       filter: blur(.2px);
       pointer-events:none;
@@ -174,11 +175,23 @@
       margin-top:16px; color:rgba(255,255,255,.65); font-size:12px;
     }
 
+    /* ✅ NOVO: mali pravni tekst ispod (isti stil, diskretno) */
+    .legal{
+      display:block;
+      margin-top:10px;
+      color:rgba(255,255,255,.60);
+      font-size:12px;
+    }
+
     @media (max-width:900px){
       .hero{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       nav{justify-content:flex-start}
-      body::before{background-size:110%}
+      body::before{
+        background-size:110%;
+        /* na mobitelu ga isto malo spustimo */
+        background-position: center 66%;
+      }
     }
   </style>
 </head>
@@ -292,7 +305,10 @@
           <a class="btn" href="epk.pdf" target="_blank" rel="noreferrer">Preuzmi EPK (PDF)</a>
 
           <div class="footer">
-            <div>© 2026 PulsDistrict</div>
+            <div>
+              © 2026 PulsDistrict
+              <span class="legal">@pulsdistrict • Sva prava zadržana.</span>
+            </div>
             <div>info@pulsdistrict.com</div>
           </div>
         </div>
